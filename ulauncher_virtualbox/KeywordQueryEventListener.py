@@ -11,7 +11,7 @@ class KeywordQueryEventListener(EventListener):
         items = []
 
         for machine in vbox.machines:
-            name = machine.name + '[' + machine.state + ']'
+            name = machine.name + '[' + str(machine.state) + ']'
             description = 'OS: ' + machine.os_type_id \
                           + '; CPUs: ' + str(machine.cpu_count) \
                           + '; RAM: ' + str(machine.memory_size) + 'MB'
