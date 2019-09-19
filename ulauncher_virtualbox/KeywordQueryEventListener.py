@@ -11,6 +11,7 @@ class KeywordQueryEventListener(EventListener):
         items = []
 
         for machine in vbox.machines:
+            name = machine.name + '[' + machine.state + ']'
             description = 'OS: ' + machine.os_type_id \
                           + '; CPUs: ' + str(machine.cpu_count) \
                           + '; RAM: ' + str(machine.memory_size) + 'MB'
@@ -22,7 +23,7 @@ class KeywordQueryEventListener(EventListener):
 
             items.append(ExtensionResultItem(
                 icon='images/icon.png',
-                name=machine.name,
+                name=name,
                 description=description,
                 on_enter=RunScriptAction(command)
             ))
