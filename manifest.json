@@ -1,6 +1,6 @@
 {
   "required_api_version": "^2.0.0",
-  "name": "Ulauncher Virtualbox",
+  "name": "VirtualBox",
   "description": "Starts your Virtualbox machines",
   "developer_name": "Luis Pabon",
   "icon": "images/icon.png",
@@ -9,25 +9,11 @@
   },
   "preferences": [
     {
-      "id": "kw_vb",
-      "type": "keyword",
-      "name": "vb",
-      "description": "Virtualbox keyword",
-      "default_value": "vb"
-    },
-    {
       "id": "kw_vbox",
       "type": "keyword",
       "name": "vbox",
       "description": "Virtualbox keyword",
       "default_value": "vbox"
-    },
-    {
-      "id": "kw_virtualbox",
-      "type": "keyword",
-      "name": "virtualbox",
-      "description": "Virtualbox keyword",
-      "default_value": "virtualbox"
     }
   ]
 }
