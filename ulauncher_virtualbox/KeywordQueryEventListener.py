@@ -9,7 +9,10 @@ class KeywordQueryEventListener(EventListener):
     def on_event(self, event, extension):
         vbox = virtualbox.VirtualBox()
         items = []
+        
+        print(extension.preferences)
         vbox_exec = extension.preferences.get('vbox_exec')
+        print(vbox_exec)
 
         for machine in vbox.machines:
             description = \
