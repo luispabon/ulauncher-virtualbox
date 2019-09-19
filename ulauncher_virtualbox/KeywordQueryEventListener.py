@@ -9,6 +9,7 @@ class KeywordQueryEventListener(EventListener):
     def on_event(self, event, extension):
         vbox = virtualbox.VirtualBox()
         items = []
+        vbox_exec = extension.preferences.get('vbox_exec')
 
         for machine in vbox.machines:
             description = \
@@ -20,7 +21,7 @@ class KeywordQueryEventListener(EventListener):
             # There doesn't seem to be any way at the moment to run custom python code as an action
             # Also, virtualbox does not yet support wayland, so make sure it starts as X
             # Even more also, can't use f strings cause I can't assure py 3.6 is available
-            command = 'QT_QPA_PLATFORM=xcb /usr/lib/virtualbox/VirtualBoxVM --startvm "' + machine.id_p + '"'
+            command = 'QT_QPA_PLATFORM=xcb ' + vbox_exec + ' --startvm "' + machine.id_p + '"'
 
             items.append(ExtensionResultItem(
                 icon='images/icon.png',

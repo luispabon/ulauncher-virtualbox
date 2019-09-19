@@ -14,6 +14,13 @@
       "name": "vbox",
       "description": "Virtualbox keyword",
       "default_value": "vbox"
+    },
+    {
+      "id": "vbox_exec",
+      "type": "input",
+      "name": "vbox_exec",
+      "description": "Full path to the VirtualBoxVM executable (not VirtualBox, not VBoxManage)",
+      "default_value": "/usr/lib/virtualbox/VirtualBoxVM"
     }
   ]
 }
