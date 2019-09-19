@@ -11,10 +11,11 @@ class KeywordQueryEventListener(EventListener):
         items = []
 
         for machine in vbox.machines:
-            name = machine.name + '[' + str(machine.state) + ']'
-            description = 'OS: ' + machine.os_type_id \
-                          + '; CPUs: ' + str(machine.cpu_count) \
-                          + '; RAM: ' + str(machine.memory_size) + 'MB'
+            description = \
+                'State: ' + str(machine.state) \
+                + '; OS: ' + machine.os_type_id \
+                + '; CPUs: ' + str(machine.cpu_count) \
+                + '; RAM: ' + str(machine.memory_size) + 'MB'
 
             # There doesn't seem to be any way at the moment to run custom python code as an action
             # Also, virtualbox does not yet support wayland, so make sure it starts as X
@@ -23,7 +24,7 @@ class KeywordQueryEventListener(EventListener):
 
             items.append(ExtensionResultItem(
                 icon='images/icon.png',
-                name=name,
+                name=machine.name,
                 description=description,
                 on_enter=RunScriptAction(command)
             ))
