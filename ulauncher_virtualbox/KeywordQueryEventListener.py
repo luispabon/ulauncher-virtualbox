@@ -57,6 +57,10 @@ class KeywordQueryEventListener(EventListener):
         return items
 
     def on_event(self, event, extension):
+        # search term 
+        search_term = (event.get_query().get_argument() or "")
+
+
         vbox_exec = extension.preferences.get('vbox_exec')
 
         machines = self.get_machine_info_vboxapi() \
@@ -65,6 +69,10 @@ class KeywordQueryEventListener(EventListener):
 
         items = []
         for machine in machines:
+            # filter machine based on search term
+            if not search_term.lower() in str(machine['name']).lower():
+                continue
+
             # There doesn't seem to be any way at the moment to run custom python code as an action
             # Also, virtualbox does not yet support wayland, so make sure it starts as X
             # Even more also, can't use f strings cause I can't assure py 3.6 is available
